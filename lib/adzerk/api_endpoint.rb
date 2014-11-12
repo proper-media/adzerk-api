@@ -3,15 +3,16 @@ module Adzerk
 
     include Adzerk::Util
 
-    attr_reader :client, :endpoint
+    attr_reader :client, :endpoint, :object_name
 
     def initialize(args= {})
       @client = args[:client]
       @endpoint = args[:endpoint]
+      @object_name = args[:object_name] || @endpoint
     end
 
     def create(opts={})
-      data = { endpoint => camelize_data(opts).to_json }
+      data = { object_name => camelize_data(opts).to_json }
       response = @client.post_request(endpoint, data)
       parse_response(response)
     end
@@ -28,7 +29,7 @@ module Adzerk
 
     def update(opts={})
       id = opts[:id].to_s
-      data = { endpoint => camelize_data(opts).to_json }
+      data = { object_name => camelize_data(opts).to_json }
       response = @client.put_request("#{endpoint}/#{id}", data)
       parse_response(response)
     end
