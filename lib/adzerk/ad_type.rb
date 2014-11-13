@@ -19,7 +19,7 @@ module Adzerk
     end
 
     def list
-      response = @client.get_request(endpoint)
+      response = @client.get_request('adtypes')
       parse_response(response)
     end
 
