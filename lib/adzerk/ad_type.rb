@@ -1,8 +1,6 @@
 module Adzerk
   class AdType < ApiEndpoint
 
-    attr_reader :client
-
     def initialize(args= {})
       @client = args[:client]
     end
