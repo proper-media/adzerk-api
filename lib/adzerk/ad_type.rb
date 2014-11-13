@@ -1,9 +1,7 @@
 module Adzerk
   class AdType < ApiEndpoint
 
-    include Adzerk::Util
-
-    attr_reader :client, :ednpoint
+    attr_reader :client
 
     def initialize(args= {})
       @client = args[:client]
