@@ -1,5 +1,5 @@
 module Adzerk
-  class AdType < ApiEndpoint
+  class AdType
 
     def initialize(args= {})
       @client = args[:client]
