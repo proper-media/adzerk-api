@@ -1,18 +1,17 @@
 module Adzerk
-  class ApiEndpoint
+  class AdType
 
     include Adzerk::Util
 
-    attr_reader :client, :endpoint
+    attr_reader :client
 
     def initialize(args= {})
       @client = args[:client]
-      @endpoint = args[:endpoint]
     end
 
     def create(opts={})
-      data = { endpoint => camelize_data(opts).to_json }
-      response = @client.post_request(endpoint, data)
+      data = { 'adtype' => camelize_data(opts).to_json }
+      response = @client.post_request('adtypes', data)
       parse_response(response)
     end
 
@@ -28,7 +27,7 @@ module Adzerk
 
     def update(opts={})
       id = opts[:id].to_s
-      data = { endpoint => camelize_data(opts).to_json }
+      data = { adtype => camelize_data(opts).to_json }
       response = @client.put_request("#{endpoint}/#{id}", data)
       parse_response(response)
     end
