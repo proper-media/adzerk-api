@@ -1,6 +1,8 @@
 module Adzerk
   class AdType
 
+    include Adzerk::Util
+
     def initialize(args= {})
       @client = args[:client]
     end
