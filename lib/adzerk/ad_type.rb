@@ -1,5 +1,5 @@
 module Adzerk
-  class AdType
+  class AdType < ApiEndpoint
 
     include Adzerk::Util
 
