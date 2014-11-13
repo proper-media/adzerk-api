@@ -3,7 +3,7 @@ module Adzerk
 
     include Adzerk::Util
 
-    attr_reader :client
+    attr_reader :client, :ednpoint
 
     def initialize(args= {})
       @client = args[:client]
@@ -16,7 +16,7 @@ module Adzerk
     end
 
     def get(id)
-      response = @client.get_request("#{endpoint}/#{id}")
+      response = @client.get_request("adtypes/#{id}")
       parse_response(response)
     end
 
@@ -28,12 +28,12 @@ module Adzerk
     def update(opts={})
       id = opts[:id].to_s
       data = { adtype => camelize_data(opts).to_json }
-      response = @client.put_request("#{endpoint}/#{id}", data)
+      response = @client.put_request("adtypes/#{id}", data)
       parse_response(response)
     end
 
     def delete(id)
-      url = "#{endpoint}/#{id}/delete"
+      url = "adtypes/#{id}/delete"
       @client.get_request(url)
     end
   end
