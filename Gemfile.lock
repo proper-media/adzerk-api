@@ -45,6 +45,6 @@ PLATFORMS
 DEPENDENCIES
   activesupport (>= 3.2.8)
   debugger
-  json
+  json (= 1.8.1)
   rest-client
   rspec
