@@ -25,7 +25,7 @@ module Adzerk
 
     def update(opts={})
       id = opts[:id].to_s
-      data = { adtype => camelize_data(opts).to_json }
+      data = { 'adtype' => camelize_data(opts).to_json }
       response = @client.put_request("adtypes/#{id}", data)
       parse_response(response)
     end
